@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        async function getOrderfood(params) {
+    return new Promise((resolve, reject) => {
+
+        setTimeout(() => {
+            resolve(`Your Order is placed: ${params}`);
+        }, 3000);
+
+    });
+}
+
+async function paymentProcessing(params) {
+
+    return new Promise((resolve, reject) => {
+
+        setTimeout(() => {
+            resolve(`Your Payment is Processing for ${params} successfully`);
+        }, 6000);
+
+    });
+}
+
+async function DeliveryData(params) {
+
+    return new Promise((resolve, reject) => {
+
+        setTimeout(() => {
+            resolve(`Your Delivery Completed: ${params}`);
+        }, 9000);
+
+    });
+}
+
+async function OrderFood(params) {
+
+    try {
+
+        console.log("Login with Zomato");
+
+        const getOrder = await getOrderfood(params);
+        console.log(getOrder);
+
+        const dataPay = await paymentProcessing(params);
+        console.log(dataPay);
+
+        const delivery = await DeliveryData(params);
+        console.log(delivery);
+
+        return "All Process Completed";
+
+    } catch (error) {
+
+        console.log(error.message);
+
+    }
+
+}
+
+OrderFood("Pizza").then((value) => {
+
+    console.log(value);
+
+}).catch((error) => {
+
+    console.log(error);
+
+});    </script>
+</head>
+<body>
+    
+</body>
+</html>

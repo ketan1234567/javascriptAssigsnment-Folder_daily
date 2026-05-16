@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        const employees = [
+  {name:"A", salary:20000},
+  {name:"B", salary:30000},
+  {name:"C", salary:40000}
+];
+
+const result=employees
+.filter(item=>item.salary)
+.map(item=>item.salary)
+.reduce((acc,crr)=>{
+    return acc+crr
+})
+
+console.log(result);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

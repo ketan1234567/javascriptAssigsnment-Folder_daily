@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        async function getProfile(params) {
+
+            return new Promise((resolve,reject)=>{
+
+                            setTimeout(()=>{
+resolve(params);
+
+            },2000)
+
+
+            })
+
+
+          
+          
+           
+            
+            
+        }
+
+             async function getPost(params) {
+
+return new Promise((resolve,reject)=>{
+    setTimeout(()=>{
+        resolve(`this is I am getting profile name is ${params} this is post showing thier  names`)
+    },5000)
+})
+           
+            
+            
+        }
+
+     async function loginUser(username){
+        try {
+
+            console.log("you are sucessfully login Data");
+            const data = await getProfile(username);
+            console.log(`This is your profile name ${data}`);
+
+            const post=await getPost(data);
+            return post;
+        } catch (error) {
+            console.log(error.messsage);
+            
+            
+        }
+     }
+     loginUser("ketan").then(
+(value)=>{console.log(value);
+}
+     );
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
