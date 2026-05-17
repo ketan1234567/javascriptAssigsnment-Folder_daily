@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        const users=[
+            {name:'ketan',active:true},
+            {name:'rahul',active:false},
+            {name:'anil',active:true}
+
+        ]
+
+        const result=users
+        .filter(item=>item.active)
+        .map(item=>item.name)
+        .reduce((acc,curr)=>{
+            return [acc,curr]
+        })
+        
+    console.log(result);
+    
+    
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
+

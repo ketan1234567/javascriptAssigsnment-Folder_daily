@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fetch API Table</title>
+</head>
+<body>
+
+
+
+  <script>
+
+    async function fetchProfile(params) {
+      return new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+          resolve(`Fetch Profile with this name ${params}`);
+        },3000)
+      })
+      
+    }
+
+    async function fetchPost(params) {
+      return new Promise((resolve,reject)=>{
+      setTimeout(()=>{
+        resolve(`post this Profile that name is ${params}`)
+      },6000)
+      })
+      
+    }
+
+
+
+async function LoginUser(params) {
+  try {
+    console.log("Login User");  // step1 when run javascript function sychronous firstly after login user and sceodnly 
+    //second run is  fetchProfile continue log and after fetchProfile () function run and last fetchPost function 
+    // firstly there runining javascritp function execute order 
+    // sychronous firstly run 
+    //after that run miscrotask function run like promise and asych await
+    //after that macrotask function run like settimeout and setinterval 
+    //  I do one exmple fisrt realexmple
+
+    //first callstck is safe
+    //evenloop is waiter 
+    //queue is waiting of list 
+    // settimeout is going first run if callsteck not emplty they are going browser API
+    //  if callstck emplty then run miscrotask after run macrotask like this manner execute javascript function
+    const Data= await fetchProfile(params);
+    console.log("Fetcing profile continue");
+    
+    console.log(Data);
+    
+    const Post=await fetchPost(params);
+    return Post;
+  } catch (error) {
+    console.log(error);
+    
+    
+  }
+  
+}
+    
+
+LoginUser("ketan").then(
+  (value)=>{console.log(value);
+  }
+).catch(
+  (error)=>{
+    console.log(error);
+    
+  }
+)
+
+  </script>
+
+</body>
+</html>
