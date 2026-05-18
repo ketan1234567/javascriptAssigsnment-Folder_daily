@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+//         function authenticate(pin, callback) {
+//     setTimeout(() => {
+//         if (pin === "1234") {
+//             callback({ userId: 1, authenticated: true });
+//         } else {
+//             callback({ userId: null, authenticated: false });
+//         }
+//     }, 800);
+// }
+
+// function getBalance(user, callback) {
+//     setTimeout(() => {
+//         callback({ ...user, balance: 50000 });
+//     }, 600);
+// }
+
+// function transfer(amount, user, callback) {
+//     setTimeout(() => {
+//         if (user.balance >= amount) {
+//             callback({ ...user, balance: user.balance - amount, transferred: amount });
+//         } else {
+//             callback({ ...user, error: "Insufficient balance" });
+//         }
+//     }, 1000);
+// }
+
+// function sendNotification(user, callback) {
+//     setTimeout(() => {
+//         callback({ ...user, notificationSent: true });
+//     }, 400);
+// }
+
+
+// authenticate("1234", function(user) {
+//     if (!user.authenticated) {
+//         console.log("Auth failed");
+//         return;
+//     }
+//     getBalance(user, function(userWithBalance) {
+//         transfer(20000, userWithBalance, function(afterTransfer) {
+//             if (afterTransfer.error) {
+//                 console.log(afterTransfer.error);
+//                 return;
+//             }
+//             sendNotification(afterTransfer, function(final) {
+//                 console.log("Done! Balance:", final.balance);
+//             });
+//         });
+//     });
+// });
+
+function authenticate(pin){
+    return new Promise((reslove,reject)=>{
+        setTimeout(()=>{
+            if (pin==="1234") {
+                reslove({useid:1,authenticate:true})
+            } else {
+                   reslove({useid:null,authenticate:false})
+            }
+
+        },800)
+
+    })
+}
+
+function getBalance(user){
+    return new Promise((reslove,reject)=>{
+        setTimeout(()=>{
+       reslove({...user,balance:50000})
+
+        },600)
+    })
+
+}
+
+function transfer(user,amount){
+ return new Promise((reslove,reject)=>{
+    setTimeout(()=>{
+        if (user.balance>=amount) {
+            reslove({...user,balance:user.balance-amount,transfered:amount})
+        } else {
+            reject({...user,error:"Insufficiant_Balance"})
+        }
+
+    },1000)
+ })
+}
+
+function sendNotification(user){
+return new Promise((reslove,reject)=>{
+    setTimeout(()=>{
+     reslove({...user,Notification:true})
+    },6000)
+})
+}
+
+authenticate("1234").then(
+    (pin)=>{
+        return getBalance(pin) 
+    }).then((user)=>{
+
+        if (user.error) {
+       throw new Error("Insufficient balance")
+        
+        }
+        return transfer(user,20000)
+
+    }).then((user)=>{
+        return sendNotification(user)
+    }).then((user)=>{
+        console.log(user);
+        
+    }).catch((error)=>{
+    console.log(error);
+    
+    })
+
+
+async function checkAll() {
+    try {
+        const Data_one= await authenticate("1234");
+        const balance=  await getBalance(Data_one);
+        if (balance.error) {
+        throw new Error("Insufficient balance");
+            
+        }
+        const transfer_one = await  transfer(balance,20000); 
+        const send_noti=  await  sendNotification(transfer_one);
+
+        return send_noti;
+        
+    } catch (error) {
+        console.log(error);
+        
+        
+    }
+    
+}
+
+checkAll().then((value)=>{
+    console.log(value);
+    
+})
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
+

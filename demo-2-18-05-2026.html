@@ -24,47 +24,14 @@ getUser(function(user) {
 
 
 
-async function getPosts(params) {
-    return new Promise((reslove,reject)=>{
-        
-       reslove(` this is our post name ${params}`)
-    })
-}
-
-async function getComments(params) {
-    return new Promise((reslove,reject)=>{
-        setTimeout(()=>{
-reslove(` this is our comments ${params}`)
-        },2000)
-       
-    })
-}
-
-async function getUser(params) {
-    try {
-        const PostData= await getPosts(params);
-        //console.log(PostData);
-        const comments= await getComments(PostData);
-
-       //console.log(comments);
-        
-
-        return comments
-        
-    } catch (error) {
-        console.log(error);
-        
-        
-    }
+getUser().then((user)=>{
+    return getPosts(user);
+}).then((posts)=>{
+    return getComments(posts)
+}).then((comments)=>{
+    console.log(comments);
     
-}
-
-getUser("ketan").then(
-    (value)=>{
-        console.log(value);
-        
-    }
-).catch((error)=>{
+}).catch((error)=>{
     console.log(error);
     
 })

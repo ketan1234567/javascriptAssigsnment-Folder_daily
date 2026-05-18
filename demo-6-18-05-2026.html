@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+// Given:
+function readFile(path){
+    return new Promise((reslove,reject)=>{
+        setTimeout(()=>{
+            reslove({path,content:"Hello Ketan"})
+        },800)
+
+    })
+}
+
+function validateFile(file){
+    return new Promise((reslove,reject)=>{
+        setTimeout(()=>{
+            const isValid=file.content.length>0;
+            reslove({...file,valid:isValid})
+        },500)
+    })
+}
+
+function compressFile(file){
+    return new Promise((reslove,reject)=>{
+        setTimeout(()=>{
+reslove({...file,compressed:true,size:file.content.length*0.5})
+        },1200)
+    })
+}
+
+function uploadFile(file){
+    return new Promise((reslove,reject)=>{
+        setTimeout(()=>{
+            reslove({...file,url:"https://cdn.example.com/file.dat"})
+        },1000)
+    })
+}
+
+readFile('/data/doc.txt').then((file)=>{
+    return validateFile(file)
+}).then((file)=>{
+
+    if (!validateFile.valid) {
+        throw new Error("Inalid File");
+        
+    } 
+
+    return compressFile(file)
+    
+
+}).then((file)=>{
+    return uploadFile(file)
+}).then((file)=>{
+    console.log(file);
+    
+}).catch((error)=>{
+    console.log(error);
+    
+})
+
+
+async function checkAll(){
+    try {
+        const ReadData= await readFile('/data/doc.txt');
+
+        const validData=   await  validateFile(ReadData)
+        if (!validData.valid) {
+            throw new Error("invalid Error")
+        }
+        const compress_File=  await compressFile(validData)
+        const UploadData= await uploadFile(compress_File)
+        return UploadData;
+    } catch (error) {
+        console.log(error);
+        
+    }
+}
+
+checkAll().then((value)=>{
+    console.log(value);
+    
+})
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
+

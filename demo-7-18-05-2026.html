@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+function readFile(path, callback) {
+    setTimeout(() => callback({ path, content: "Hello World" }), 800);
+}
+
+function validateFile(file, callback) {
+    setTimeout(() => {
+        const isValid = file.content.length > 0;
+        callback({ ...file, valid: isValid });
+    }, 500);
+}
+
+function compressFile(file, callback) {
+    setTimeout(() => {
+        callback({ ...file, compressed: true, size: file.content.length * 0.5 });
+    }, 1200);
+}
+
+function uploadFile(file, callback) {
+    setTimeout(() => callback({ ...file, url: "https://cdn.example.com/file.dat" }), 1000);
+}
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
+

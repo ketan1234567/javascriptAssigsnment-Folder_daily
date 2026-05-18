@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+// Given:
+function getCart(userId) {
+
+  return new Promise((resolve,reject)=>{
+    setTimeout(()=>{
+  resolve({ items: [{ name: "Laptop", price: 50000 }] })
+    },1000)
+  })
+    
+}
+
+function applyDiscount(cart) {
+
+  return new Promise((resolve,reject)=>{
+    setTimeout(()=>{
+       cart.items.forEach(i => i.price *= 0.9);//10 0ff
+    resolve(cart)
+    },1000)
+  })
+
+}
+
+function processPayment(cart) {
+
+  return new Promise((resolve,reject)=>{
+
+    setTimeout(()=>{
+    resolve({ ...cart, paymentId: "PAY_123", status: "paid" })
+    },1500)
+})
+}
+
+function sendConfirmation(order) {
+  return new Promise((resolve,reject)=>{
+
+    setTimeout(()=>{
+    resolve([{ ...order, message: "Order confirmed!" }])
+    },500)
+  
+    
+})
+}
+
+// ❌ Callback Hell:
+// getCart(1, function(cart) {
+//     applyDiscount(cart, function(discountedCart) {
+//         processPayment(discountedCart, function(paidOrder) {
+//             sendConfirmation(paidOrder, function(finalOrder) {
+//                 console.log(finalOrder);
+//             });
+//         });
+//     });
+// });
+
+// TODO: Convert to Promise Chain
+
+getCart().then((cart)=>{
+  return applyDiscount(cart)
+}).then((cart)=>{
+  return processPayment(cart)
+}).then((main)=>{
+return sendConfirmation(main)
+}).then((main)=>{
+console.log(JSON.stringify(main));
+
+})
+
+
+
+// TODO: Convert to async/await
+
+async function allUsers() {
+  try {
+    const Data=  await getCart();
+    const discout= await  applyDiscount(Data)
+    const payment= await  processPayment(discout);
+    const confirmed=  await sendConfirmation(payment)
+    return confirmed;
+    console.log(confirmed);
+    
+  } catch (error) {
+    console.log(error);
+    
+    
+  }
+}
+allUsers().then((result) => {
+  console.log(JSON.stringify(result));
+  
+}).catch((err) => {
+  
+});
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
+
