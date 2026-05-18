@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+// function showUser(callback) {
+//   console.log("User fetched");
+
+//   callback();
+// }
+// showUser(function(){
+//     console.log("callback is executed");
+    
+// })
+getUser(function(user) {
+  getPosts(user, function(posts) {
+    getComments(posts, function(comments) {
+      console.log(comments);
+    });
+  });
+});
+
+
+
+async function getPosts(params) {
+    return new Promise((reslove,reject)=>{
+        
+       reslove(` this is our post name ${params}`)
+    })
+}
+
+async function getComments(params) {
+    return new Promise((reslove,reject)=>{
+        setTimeout(()=>{
+reslove(` this is our comments ${params}`)
+        },2000)
+       
+    })
+}
+
+async function getUser(params) {
+    try {
+        const PostData= await getPosts(params);
+        //console.log(PostData);
+        const comments= await getComments(PostData);
+
+       //console.log(comments);
+        
+
+        return comments
+        
+    } catch (error) {
+        console.log(error);
+        
+        
+    }
+    
+}
+
+getUser("ketan").then(
+    (value)=>{
+        console.log(value);
+        
+    }
+).catch((error)=>{
+    console.log(error);
+    
+})
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
+
