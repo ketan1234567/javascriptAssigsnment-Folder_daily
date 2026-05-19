@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+
+
+
+
+async function authenticate_user(params) {
+   return new Promise((resolve, reject) => {
+      setTimeout(() => {
+         resolve({name:params})
+      }, 1000);
+   })
+   
+}
+async function load_dashboard_data() {
+   return new Promise((resolve, reject) => {
+      setTimeout(() => {
+         resolve("Load_Dashboard_ata")
+      }, 1000);
+   })
+   
+}
+
+async function load_notifications() {
+   return new Promise((resolve, reject) => {
+       setTimeout(() => {
+          resolve("load_notification_data")
+       }, 1000);
+   })
+   
+}
+async function show_loading() {
+   try {
+      const user= await authenticate_user("vishal")
+      const dash= await load_dashboard_data()
+      const Notifty= await load_notifications()
+
+      const result=Promise.allSettled(
+         [
+            user,
+            dash,
+            Notifty
+         ]
+      )
+
+
+
+      console.log(result);
+
+      
+
+      
+      
+
+      
+   } catch (error) {
+      console.log(error.message);
+      
+      
+   }
+   
+}
+
+show_loading().then((value)=>{
+  // console.log(value);
+   
+}).catch((error)=>{
+   console.log(error);
+   
+})
+    
+    </script>
+</head>
+<body>
+   <h1>Promise.race</h1>
+
+   <div id="demo">
+
+   </div>
+
+</body>
+</html>
+

@@ -58,19 +58,19 @@ async function loadFullProfile() {
 loadFullProfile();
 
 
-// getUser().then((user)=>{
-//     return getProfile(user)
-// }).then(
-//     (profile)=>{
-//         return getAvatar(profile)
-//     }
-// ).then((fullProfile)=>{
-//     console.log(fullProfile);
+getUser().then((user)=>{
+    return getProfile(user)
+}).then(
+    (profile)=>{
+        return getAvatar(profile)
+    }
+).then((fullProfile)=>{
+    console.log(fullProfile);
     
-// }).catch((error)=>{
-//     console.log(error);
+}).catch((error)=>{
+    console.log(error);
     
-// })
+})
 
 
 

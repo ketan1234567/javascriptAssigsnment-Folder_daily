@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function showDemo(){
+            return new Promise((reslove,reject)=>{
+                    setTimeout(() => {
+                        // console.log("show_user_1");
+                            reslove("I am done")
+                    }, 1000);
+
+                          
+
+
+
+
+
+        })
+    }
+
+                function showDemo2(){
+            return new Promise((reslove,reject)=>{
+                setTimeout(() => {
+                    reslove("show_user2");
+                    
+                }, 1000);
+            })
+        }
+
+        
+                function showDemo3(){
+            return new Promise((reslove,reject)=>{
+                setTimeout(() => {
+                    reslove("show_user3");
+                    
+                }, 1000);
+            })
+        }
+
+
+        async function allFuntion() {
+            try {
+                const Demo1= await showDemo();
+                 const Demo2= await showDemo2();
+                const Demo3= await showDemo3();
+              Promise.all([
+                    Demo1,Demo2,Demo3
+                ]).then((value)=>{
+            console.log(value);
+            
+        }).catch((error)=>{
+            console.log(error);
+            
+        })
+               
+    
+                
+
+            } catch (error) {
+                console.log(error);
+                
+                
+            }
+
+           
+            
+        }
+        allFuntion()
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
+

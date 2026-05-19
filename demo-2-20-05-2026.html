@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+    function getUser(id){
+        return new Promise((reslove,reject)=>{
+            setTimeout(() => {
+                reslove({id,name:"User"+id})
+            },500);
+        })
+    }
+
+    function getOrders(userId){
+return new Promise((reslove,reject)=>{
+    setTimeout(()=>{
+        reslove(
+        { orderId: userId * 100 + 1, total: 1000 },
+        { orderId: userId * 100 + 2, total: 2000 }
+        
+        )
+    },800)
+})
+    }
+
+    function getOrderDetails(orderId){
+        return new Promise((reslove,reject)=>{
+            setTimeout(()=>{
+                reslove(
+                    {
+        orderId,
+        product: "Product " + orderId,
+        status: "shipped"
+                    }
+                )
+            },600)
+        })
+    }
+ 
+
+getUser(2).then((value)=>{
+    return getOrders(value.id)
+}).then((value)=>{
+    return getOrderDetails(value.orderId)
+}).then((value)=>{
+    console.log(value);
+    
+}).catch((error)=>{
+    console.log(error);
+    
+})
+
+async function allUsers() {
+
+    try {
+    const Users= await getUser(2);
+    const Orders= await getOrders(Users.id)
+    const getOrderDetails123= await getOrderDetails(Orders.orderId);
+
+    console.log(getOrderDetails123);
+    
+        
+    } catch (error) {
+        
+    }
+
+
+
+    
+}
+
+        allUsers()
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+
