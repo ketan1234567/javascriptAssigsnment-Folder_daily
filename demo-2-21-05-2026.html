@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        // function addToCart(callback){
+        //  setTimeout(() => {
+        //     callback({id:"123",product:"mobile",price:20000})
+        //  }, 1000);
+        // }
+        //         function ordertoCart(cart,callback){
+        //  setTimeout(() => {
+        //     callback({...cart,Billing:"info", ourpolicy:"this is product not return"})
+        //  }, 2000);
+        // }
+
+        // function orderdetails(cart,callback){
+        //  setTimeout(() => {
+        //     callback({...cart,address:"sai vihar udgir"})
+        //  }, 3000);
+        // }
+
+
+
+        
+        function addToCart(){
+
+            return  new Promise((resolve, reject) => {
+                       setTimeout(() => {
+            resolve({id:"123",product:"mobile",price:20000})
+         }, 1000);
+            })
+            
+
+        }
+                function ordertoCart(cart){
+
+                    return new Promise((resolve, reject) => {
+                          setTimeout(() => {
+            resolve({...cart,Billing:"info", ourpolicy:"this is product not return"})
+         }, 2000);
+                        
+                    })
+       
+        }
+
+        function orderdetails(cart){
+
+            return new Promise((resolve, reject) => {
+
+                     setTimeout(() => {
+            resolve({...cart,address:"sai vihar udgir"})
+         }, 3000);
+              
+            })
+            
+    
+        }
+
+
+
+        // This is promise chaning 
+
+// addToCart().then((value)=>{
+//  return ordertoCart(value)
+// }).then((value)=>{
+//     return orderdetails(value)
+// }).then((value)=>{
+//     console.log(value);
+    
+// })
+
+
+
+        // This is Additional convert for callback hell for asych and await 
+
+async function alldatashow() {
+    try {
+        const data= await addToCart();
+        const demo=await ordertoCart(data)
+        const main_two= await orderdetails(demo)
+              console.log(main_two);
+        return main_two
+  
+        
+    } catch (error) {
+        console.log(error);
+        
+        
+    }
+    
+
+}
+
+alldatashow().then((value)=>{
+  //  console.log(value);
+    
+})
+
+
+
+
+
+
+        // addToCart(function(cart){
+        //   ordertoCart(cart,function(cart){
+        //   orderdetails(cart, function(cart){
+        //     console.log(cart);
+            
+        //   })
+        //   })
+        // })
+
+
+        
+
+
+        
+    </script>
+</head>
+<body>
+    <h1>Simulate an API retry mechanism using async/await.</h1>
+</body>
+</html>
+
