@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        function login_user() {
+         return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve("This is Login user")
+                }, 1000);
+            });
+            
+        }
+                function fetch_profile() {
+         return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve("This is  Fetch Profile")
+                }, 2000);
+            });
+            
+        }
+                function fetch_notifications() {
+         return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve("This is Fetch Notification")
+                }, 3000);
+            });
+            
+        }
+
+
+        async function Main_Dashboard() {
+            try {
+                const user = await login_user();
+                const Profile = await fetch_profile();
+                const Notification = await fetch_notifications();
+
+                return {
+                    user,
+                    Profile,
+                    Notification
+                }
+
+            } catch (error) {
+                console.log(error);
+                
+                
+            }
+        }
+        Main_Dashboard().then((value)=>{
+            console.log(value);
+            
+        })
+
+    </script>
+</head>
+<body>
+    <h1>Build a real-world async flow:</h1>
+</body>
+</html>
+

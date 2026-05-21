@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        function loadUser() {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve("Load user");
+
+                }, 1000)
+            });
+
+        }
+        function loadPosts() {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve("load_post")
+                }, 500);
+
+            });
+
+        }
+        function loadComments() {
+
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve("load_comments")
+                }, 500);
+
+            });
+
+        }
+
+        async function AllResult() {
+            try {
+
+                const[demo1,demo2,demo3]= await Promise.all([
+                   loadUser(),
+                   loadPosts(),
+                   loadComments()
+                ])
+
+                console.log(demo1);
+                console.log(demo2);
+                console.log(demo3);
+                
+
+                
+            } catch (error) {
+                console.log(error);
+                
+                
+            }
+            
+        }
+        AllResult();
+
+
+
+    </script>
+</head>
+
+<body>
+    <h1>This is all for PromiseAll result</h1>
+</body>
+
+</html>

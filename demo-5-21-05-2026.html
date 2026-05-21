@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        async function loadUser() {
+            return  new  Promise((resolve, reject) => {
+                resolve("this is Load Data");
+            });
+            
+        }
+                async function loadPosts() {
+            return  new  Promise((resolve, reject) => {
+                resolve("this is Post Data");
+            });
+            
+        }
+
+                        async function loadComments() {
+            return  new  Promise((resolve, reject) => {
+                resolve("this Load Comments");
+            });
+            
+        }
+
+  async function AllsuerShowed() {
+    try {
+        const One=await loadUser();
+        const two=await loadPosts();
+        const three=await loadComments();
+
+      const result1=  Promise.all([
+            One,
+            two,
+            three
+
+        ])
+
+   result1.then((value)=>{
+    console.log(value);
+    
+   })
+
+    } catch (error) {
+        console.log(error);
+        
+        
+    }
+    
+  }
+
+  AllsuerShowed()
+
+
+
+
+     
+    </script>
+</head>
+<body>
+    <h1>This is for retry logic mechanisam </h1>
+</body>
+</html>
+
