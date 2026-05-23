@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   
+</head>
+
+<body>
+
+ <script>
+
+   const user = {
+  name:"Ketan",
+  getName: () => {
+     console.log(this.name);
+  }
+}
+
+user.getName();
+
+
+// why getname object properity undefined because of that when we calling  arrow function 
+//it takes brrow this lexical scop they don't thier own this when we calling normally function 
+//they have it's own this normally function call 
+       
+
+    </script>
+</body>
+
+</html>

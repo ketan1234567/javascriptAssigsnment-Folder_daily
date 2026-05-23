@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+function task1() {
+return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve({Task:"Task 1 is Completed"})
+        
+    }, 1000);
+        
+    });
+
+    
+}
+function task2() {
+return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve({Task:"Task 2 is Completed"})
+        
+    }, 2000);
+        
+    });
+
+    
+}
+function task3() {
+return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve({Task:"Task 3 is Completed"})
+        
+    }, 3000);
+        
+    });
+
+    
+}
+
+async function AllTaskCompleted() {
+  try {
+    console.time("Sequential");
+    const Data1 = await task1();
+    const Data2 = await task2();
+    const Data3 = await task3();
+    console.timeEnd("Sequential");
+
+    console.log("Sequential Result:", [Data1, Data2, Data3]);
+
+    console.time("Parallel");
+    const [demo1, demo2, demo3] = await Promise.all([
+      task1(),
+      task2(),
+      task3()
+    ]);
+    console.timeEnd("Parallel");
+
+    console.log("Parallel Result:", [demo1, demo2, demo3]);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+AllTaskCompleted();
+        AllTaskCompleted().then((value)=>{
+            //console.log(value);
+            
+        })
+
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

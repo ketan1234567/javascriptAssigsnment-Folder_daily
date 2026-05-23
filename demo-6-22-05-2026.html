@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+      function createBankAccount() {
+
+        let balace=0; // here balance we have used for cloure 
+
+        return{
+          deposit:function deposit(amoout){
+           return balace+=amoout;
+          },
+                 withdraw:function withdraw(amoout){
+           return balace-=amoout
+          },
+            checkBalance:function withdraw(){
+         console.log(balace);
+         
+          }
+        }
+        
+      }
+
+      const Result=  createBankAccount()
+
+      Result.deposit(20000)
+      Result.withdraw(3000)
+      Result.checkBalance()
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

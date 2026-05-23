@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   
+</head>
+
+<body>
+
+ <script>
+
+function  loadProducts(){
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve("Products Loaded")
+        }, 1000);
+    })
+
+   }
+function loadCart(){
+        return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve("Cart Loaded")
+        }, 1000);
+    })
+
+}
+function loadWishlist(){
+        return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve("Wishlist Loaded")
+        }, 1000);
+    })
+
+}
+
+ async function allUsershow(){
+
+    const result=Promise.all([
+        loadProducts(),
+        loadCart(),
+        loadWishlist()
+    ]).then((value)=>{
+    console.log(value);
+    
+})
+
+
+//console.log(result);
+
+}
+allUsershow()
+
+
+
+       
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+function fastServer() {
+ return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve("This is Fast Server")
+    }, 500);
+  });
+  
+}
+
+function slowServer() {
+ return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve("This is Slow Server")
+    }, 1000);
+  });
+  
+}
+
+function load_all_server(){
+  Promise.race([
+    fastServer(),
+    slowServer()
+  ]).then((value)=>{
+    console.log(value);
+    
+  })
+}
+
+load_all_server()
+     
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

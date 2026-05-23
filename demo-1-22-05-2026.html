@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        function load_user() {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve({ id: 1, name: "ketan_deshmukh" })
+                }, 1000);
+
+            });
+        }
+
+
+        function load_posts() {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve({ postName: "How do we start Next js" })
+                }, 2000);
+
+            });
+        }
+
+        function load_Comments() {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve({ userComment: "This is useful blog for future trend" })
+                }, 2000);
+
+            });
+        }
+
+
+        async function allshow() {
+            const [user, posts, comments ] = await Promise.all([
+                load_user(),
+                load_posts(),
+                load_Comments()
+
+            ])
+
+            console.log(user);
+            console.log(posts);
+            console.log(comments);
+
+        }
+
+
+allshow()
+
+
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

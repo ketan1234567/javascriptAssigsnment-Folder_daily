@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+ function getUser(){
+ return new Promise((resolve, reject) =>{
+    setTimeout(() => {
+        resolve({user:"ketan"})
+    }, 1000);
+ })
+ }
+
+  function getOrders(user){
+ return new Promise((resolve, reject) =>{
+    setTimeout(() => {
+        resolve({...user,order:"Laptop"})
+    }, 1000);
+ })
+ }
+
+
+   function getPayment(user){
+ return new Promise((resolve, reject) =>{
+    setTimeout(() => {
+        resolve({...user,payment:"success"})
+    }, 1000);
+ })
+ }
+
+
+ //Promise-chaining
+
+ getUser().then((value)=>{
+    return getOrders(value)
+ }).then((value)=>{
+    return getPayment(value)
+ }).then((value)=>{
+    console.log(value);
+    
+ })
+
+//async await
+
+async function allUsersLoad(){
+    try {
+    users = await getUser()
+    orders= await getOrders()
+    payment = await getPayment()
+
+        return {
+            users,
+            orders,
+            payment
+        }
+
+    } catch (error) {
+        console.log(error);    
+    }
+}
+allUsersLoad().then((value)=>{
+    console.log(value);
+    
+})
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,251 @@
+______________________________________________________________________________________________________________________
+
+My Mentor Roadmap For You (3 Months)
+
+DAILY TIME REQUIREMENT
+______________________________________________________________________________________________________________________
+
+Minimum:
+
+4 hours daily	
+
+______________________________________________________________________________________________________________________
+
+Best:
+
+6–7 focused hours
+
+Not random YouTube watching.
+
+REAL coding.
+
+DAILY STRUCTURE
+________________________________________________________________________________________________________________________
+
+1. JavaScript Logic Practice — 1.5 hours
+
+Practice:
+
+array methods
+object updates
+async/await
+closures
+event loop
+DOM manipulation
+
+VERY important.
+
+Because React is built on JavaScript thinking.
+______________________________________________________________________________________________________________________
+
+2. Build Projects — 2.5 hours
+
+
+Every day build something.
+
+NOT tutorial copying.
+
+Even small features matter.
+
+______________________________________________________________________________________________________________________
+
+3. English + Interview Practice — 1 hour
+
+Practice:
+
+explaining concepts aloud
+mock interview answers
+reading code aloud
+describing project architecture
+
+______________________________________________________________________________________________________________________
+
+4. Debugging + Code Review — 30 mins
+
+Read:
+
+your old code
+mistakes
+optimize logic
+
+This creates real developer thinking.
+
+______________________________________________________________________________________________________________________
+
+MONTH 1 — JAVASCRIPT + DOM + STATE THINKING
+
+Learn Deeply
+
+
+JavaScript
+arrays
+objects
+closures
+async/await
+Promises
+event loop
+destructuring
+spread operator
+__________________________________________________________________________________________________________________________
+
+
+DOM
+
+rendering UI
+event listeners
+dynamic updates
+forms
+___________________________________________________________________________________________________________________
+
+
+PROJECTS TO BUILD
+
+Week 1
+
+Counter app
+Todo app
+Notes app
+Digital clock
+Accordion
+Mini Projects
+
+___________________________________________________________________________________________________________________
+
+Week 2
+
+Intermediate DOM Projects
+Weather app
+Expense tracker
+Quiz app
+Movie search app
+Pagination app
+
+___________________________________________________________________________________________________________________
+
+
+Week 3–4
+
+MOST IMPORTANT
+JavaScript Add To Cart Project
+
+Features:
+
+add item
+remove item
+quantity update
+total price
+localStorage
+search/filter
+
+___________________________________________________________________________________________________________________
+THIS PROJECT changes your frontend thinking.
+
+MONTH 2 — REACT FOUNDATION
+
+Goal:
+Become comfortable building React apps independently.
+
+
+___________________________________________________________________________________________________________________
+
+Learn React Deeply
+
+Core React
+components
+props
+useState
+useEffect
+conditional rendering
+list rendering
+lifting state
+controlled forms
+
+___________________________________________________________________________________________________________________
+
+
+Intermediate React
+
+custom hooks
+Context API
+API integration
+reusable components
+___________________________________________________________________________________________________________________
+
+PROJECTS TO BUILD
+
+Week 1
+React counter
+Todo app
+Notes app
+___________________________________________________________________________________________________________________
+
+Week 2
+Weather app
+Movie search app
+GitHub profile finder
+
+___________________________________________________________________________________________________________________
+Week 3–4
+React Add To Cart Project
+
+Features:
+
+product listing
+cart sidebar
+quantity management
+filters
+search
+localStorage
+reusable components
+___________________________________________________________________________________________________________________
+
+MONTH 3 — REAL DEVELOPER THINKING
+
+Goal:
+Become interview-ready.
+___________________________________________________________________________________________________________________
+
+Learn
+Advanced React
+performance optimization
+useMemo
+useCallback
+React architecture
+folder structure
+
+___________________________________________________________________________________________________________________
+
+Real-world concepts
+API handling
+loading states
+error states
+reusable utilities
+state normalization
+
+___________________________________________________________________________________________________________________
+
+FINAL PROJECTS
+1. E-commerce Frontend
+
+MOST IMPORTANT
+___________________________________________________________________________________________________________________
+
+
+2. Admin Dashboard
+
+Features:
+
+charts
+tables
+filters
+authentication UI
+
+___________________________________________________________________________________________________________________
+
+3. Task Management App
+
+Like Trello mini version.
+
+___________________________________________________________________________________________________________________
+
+

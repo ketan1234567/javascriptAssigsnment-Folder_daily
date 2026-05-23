@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   
+</head>
+
+<body>
+
+ <script>
+
+    function createBankAccount(initialBalance){
+    
+        let balance=0;
+         balance =+initialBalance
+
+        return {
+            deposit:function deposit(amount){
+              return balance = balance + amount
+            },
+            withdraw:function withdraw(amount){
+              return balance-=amount
+            },
+            checkBalance:function checkBalance(){
+         
+              console.log( balance );
+                  
+              
+            }
+
+
+        }
+    }
+
+    const result=createBankAccount(2000);
+    result.deposit(20000)
+    result.withdraw(1000)
+    result.checkBalance()
+
+
+
+
+
+console.log(result);
+
+       
+
+    </script>
+</body>
+
+</html>
