@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul id="demo"></ul>
+
+
+</body>
+<script>
+ async function retryApi(maxAttempts) {
+  for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+    try {
+      const data = await fetch("https://dummy.restapiexample.com/api/v1/employees");
+      const result = await data.json();
+
+      if (result.status === "success") {
+        console.log("Data successfully fetched on attempt", attempt);
+        return result;
+      } else {
+        throw new Error("API returned failure status");
+      }
+    } catch (error) {
+      console.log("Attempt failed:", attempt);
+
+      if (attempt === maxAttempts) {
+        throw new Error("Maximum attempts exceeded");
+      }
+    }
+  }
+}
+
+retryApi(3).then(console.log).catch(console.log);
+   
+</script>
+
+</html>

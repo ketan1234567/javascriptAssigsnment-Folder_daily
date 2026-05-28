@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+</head>
+
+<body>
+
+  <script>
+    
+   async function product_fetch(){
+    try {
+      const product= await fetch("https://fake-store-api.mock.beeceptor.com/api/products");
+      const result = await product.json()
+      const main_result=result
+      .filter(item=>item.product_id==1)
+      .map(item=>({
+        product_id:item.product_id,
+        name:item.name,
+      }))
+    // console.log(main_result);
+//console.log(Array.isArray(main_result));
+      
+   return main_result
+    } catch (error) {
+      console.log(error);
+    }
+
+      
+
+    }
+
+       async function add_to_cart(main_result){
+    try {
+
+      return new Promise((resolve, reject) => {
+
+  
+
+        resolve( 
+
+        main_result.map((item)=>({
+          ...item,
+          user_id:1,
+          quantite:1
+
+        }))
+        )
+      })
+
+      
+    } catch (error) {
+      console.log(error);
+    }
+
+      
+
+    }
+
+    
+product_fetch().then((value)=>{
+  return value
+}).then((value)=>{
+  return add_to_cart(value)
+}).then((value)=>{
+  console.log(value);
+  
+})
+
+
+
+
+
+    
+ 
+
+  </script>
+</body>
+
+</html>

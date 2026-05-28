@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul id="demo"></ul>
+
+
+</body>
+
+<script>
+
+ function checkAdmin(username,password) {
+  return new Promise((resolve, reject) => {
+    if (username=="admin" && password=="1234") {
+        resolve("Login Successful")
+    } else {
+        reject("Invalid Credentials")
+        
+    }
+
+      
+    })
+    
+    
+}
+
+async function checkall() {
+    try {
+        const data= await checkAdmin("admin","1234")
+        console.log(data);
+        
+        
+    } catch (error) {
+        console.log(error);
+        
+        
+    }
+    
+}
+checkall()
+
+
+</script>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+</head>
+
+<body>
+
+  <script>
+
+    async function order_data(userData) {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve({order_data:userData,order_detials:"sai vihar udgir",status:"order_sucessfully playced"})
+        }, 1000);
+      })
+      
+    }
+
+    async function userData(userData) {
+      try {
+        const User= await fetch("https://jsonplaceholder.typicode.com/posts");
+        const resp= await User.json()
+        const result=resp.find(item=>item.id==1)  
+        const main_Result= await order_data(result);
+        console.log(main_Result);
+        
+      } catch (error) {
+        
+      }
+
+  
+      
+    }
+    userData();
+    
+ 
+
+  </script>
+</body>
+
+</html>

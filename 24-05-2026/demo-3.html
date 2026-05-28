@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul id="demo"></ul>
+
+
+</body>
+<script>
+    async function demoData() {
+        try {
+
+            const Data = await fetch("https://fakestoreapi.com/products");
+            const resp = await Data.json()
+            //console.log(resp.title);
+
+            const result = resp.map((item) => {
+                return `<li>${item.title}</li>`
+                // console.log();
+
+            }).join("")
+
+
+            document.getElementById("demo").innerHTML = result;
+
+            //console.log(result);
+
+        } catch (error) {
+            console.log(error);
+
+
+        }
+
+    }
+    demoData()
+</script>
+
+</html>

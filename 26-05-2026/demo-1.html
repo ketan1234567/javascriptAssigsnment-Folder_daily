@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    function fetchUser() {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve({id:1,name:"ketan"})
+                
+            }, 1000);
+          
+        })
+        
+
+    }
+
+    function fetchPosts() {
+
+         return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve({postname:"React Developer"})
+                
+            }, 2000);
+          
+        })
+
+    }
+
+    function fetchComments() {
+         return new Promise((resolve, reject) => {
+            let req=false
+            setTimeout(() => {
+               if (req) {
+                 resolve({comments:"you are doing well"})
+               } else {
+                reject("this is falied")
+                
+               }
+                
+            }, 3000);
+          
+        })
+
+    }
+
+    async function showall() {
+
+        try {
+
+            const result1= await Promise.allSettled([
+                fetchUser(),
+                fetchPosts(),
+                fetchComments()
+            ])
+
+            console.log(result1);
+            
+        } catch (error) {
+            console.log(error);
+            
+            
+        }
+        
+    }
+
+showall()
+
+
+</script>
+
+<body>
+
+
+</body>
+
+</html>

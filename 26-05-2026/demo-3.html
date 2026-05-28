@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul id="demo"></ul>
+
+
+</body>
+<script>
+
+async function fetchEmployee(id) {
+
+    const employees = [
+        { id: 1, name: "ketan_deshmukh", salary: 30000 },
+        { id: 2, name: "rahul_sharma", salary: 35000 },
+        { id: 3, name: "priya_patil", salary: 40000 },
+        { id: 4, name: "amit_jadhav", salary: 28000 },
+        { id: 5, name: "sneha_kale", salary: 45000 },
+        { id: 6, name: "rohit_pawar", salary: 32000 },
+        { id: 7, name: "pooja_shinde", salary: 38000 },
+        { id: 8, name: "vikas_more", salary: 50000 },
+        { id: 9, name: "neha_chavan", salary: 29000 },
+        { id: 10, name: "omkar_thorat", salary: 42000 }
+    ];
+
+    return new Promise((resolve) => {
+
+        setTimeout(() => {
+
+            resolve(
+                employees.find((item) => item.id === id)
+            )
+
+        }, 1000);
+
+    })
+
+}
+
+async function showAllUser() {
+
+    try {
+
+        const ids = [1, 2, 3, 4];
+
+        const result = await Promise.all(
+
+            ids.map(async (id) => {
+
+                return await fetchEmployee(id)
+
+            })
+
+        ).then((value) => {
+
+            return value
+                .filter((item) => item.salary > 30000)
+                .map((item) => {
+
+                    return {
+                        id: item.id,
+                        salary: item.salary
+                    }
+
+                })
+
+        })
+
+        console.log(result);
+
+    } catch (error) {
+
+        console.log(error);
+
+    }
+
+}
+
+showAllUser();
+
+   </script>
+
+</html>

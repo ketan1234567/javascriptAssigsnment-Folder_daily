@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+   function server1(){
+ return new Promise((resolve, reject) => {
+    setTimeout(() => {
+        let req=false
+        if (req) {
+            resolve("first server1 success")
+            
+        } else {
+            reject("this is reject error server1")
+            
+        }
+        
+    }, 1000);
+    
+ })
+
+   }
+
+   function  server2(){
+     return new Promise((resolve, reject) => {
+                let req=false
+
+    setTimeout(() => {
+        if (req) {
+            resolve("first server2 success")
+            
+        } else {
+            reject("this is reject error server2")
+            
+        }
+        
+    }, 2000);
+    
+ })
+
+   }
+
+    function server3(){
+
+             return new Promise((resolve, reject) => {
+                let req=true
+
+    setTimeout(() => {
+        if (req) {
+            resolve("first server3 success")
+            
+        } else {
+            reject("this is reject error server3")
+            
+        }
+        
+    }, 2000);
+    
+ })
+
+
+
+    }
+
+    async function showAllresult() {
+        
+
+        try {
+            const result1= await Promise.any([
+                server1(),
+                server2(),
+                server3()
+            ])
+            console.log(result1);
+            
+            
+        } catch (error) {
+            console.log(error);
+            
+            
+        }
+        
+    }
+
+    showAllresult()
+
+</script>
+<body>
+
+    
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul id="demo"></ul>
+
+
+</body>
+<script>
+   console.log("A");
+
+setTimeout(()=>{
+   console.log("B");
+},0);
+
+Promise.resolve().then(()=>{
+   console.log("C");
+});
+
+async function test(){
+
+   console.log("D");
+
+   await Promise.resolve();
+
+   console.log("E");
+
+}
+
+test();
+
+
+// A
+// D
+// C
+// E
+// B
+
+</script>
+
+</html>
