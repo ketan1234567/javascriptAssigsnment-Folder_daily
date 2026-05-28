@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+
+   function loginUser(username){
+    try {
+      if (username) {
+        console.log("Login successful");
+        const data={username:username}
+        return data
+      } else {
+        console.log("User must login first");
+      }
+    } catch (error) {
+      console.log(error);
+      
+      
+    }
+
+   }
+
+   
+   function getProfile(data){
+        try {
+           //console.log(data.username);
+      if (data && data.username) {
+        const profile={...data,Email:"deshmukhketan647@gamil.com",Mobile:"9970166981",Address:"sai Vihar Udgir"}
+          console.log("Profile fetched");
+         return profile
+      } else {
+        console.log("You have first Login User Name");
+      }
+    } catch (error) {
+      console.log(error);
+      
+      
+    }
+
+   }
+  function  getPosts(profile){
+    try {
+     
+      
+      if (profile.username) {
+          const posts={...profile,Post:"This is Node js Articale we have Updated",Date:"28-05-2026"}
+        console.log("Posts fetched");
+          return posts
+      } else {
+        console.log("You have first Login User Name");
+      }
+    } catch (error) {
+      console.log(error);
+      
+      
+    }
+
+  }
+  
+function  logoutUser(posts){
+
+  try {
+      if (posts.username) {
+          const user={...posts,Logout:"Logout Sucessfully"}
+        console.log("Logout successful");
+        return user
+        
+      } else {
+        console.log("You have first Login User Name");
+      }
+    } catch (error) {
+      console.log(error);
+      
+      
+    }
+
+  }
+
+
+ async function allUserCheck() {
+  try {
+    const demo1= await loginUser("Ketan")
+    const demo2= await getProfile(demo1)
+    const demo3= await getPosts(demo2)
+    const demo4= await logoutUser(demo3)
+
+    //console.log(demo1);
+    //console.log(demo2);
+    //console.log(demo3);
+    console.log(demo4);
+    
+
+
+  } catch (error) {
+    console.log(error);
+    
+  }
+  
+ } 
+
+ allUserCheck()
+    
+    </script>
+    
+</body>
+</html>
