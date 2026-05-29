@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+
+
+
+
+  <script>
+
+
+
+    function loginUser(username) {
+      return new Promise((resolve, reject) => {
+        if (username) {
+          resolve({username:username})
+        } else {
+          reject(" Login User Must Requred")
+          
+        }
+      })
+
+    }
+    function addToCart(user) {
+            return new Promise((resolve, reject) => {
+        if (user.username) {
+          resolve({...user,cart_id:2,cart_item:"samgsung",quantity:1})
+        } else {
+          reject(" User must login first Then Add to cart item")
+          
+        }
+      })
+
+    }
+    function checkout(user) {
+                  return new Promise((resolve, reject) => {
+        if (user.cart_id) {
+          resolve({...user,Checkout:"You Sucessfully CheckOut"})
+        } else {
+          reject("if You have checkout First you Must Add Cart item")
+          
+        }
+      })
+
+    }
+
+    async function showAllData() {
+      try {
+        const Users= await loginUser("Ketan")
+         const Add= await addToCart(Users)
+          const chek= await checkout(Add)
+          console.log(chek);
+          
+        return chek
+      } catch (error) {
+        console.log(error);
+        
+        
+      }
+      
+    }
+
+
+showAllData()
+
+  </script>
+</body>
+
+</html>

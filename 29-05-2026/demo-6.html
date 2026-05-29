@@ -25,6 +25,7 @@ addBtn.addEventListener("click", function () {
 
   const taskText = input.value.trim();
 
+
   // Validation
   if (taskText === "") {
     alert("Please enter task");
@@ -33,7 +34,6 @@ addBtn.addEventListener("click", function () {
 
   // Store in array
   tasks.push(taskText);
-
   // Create li
   const li = document.createElement("li");
 

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+
+
+
+    <script>
+console.log("A");
+
+setTimeout(() => {
+  console.log("B");
+}, 0);
+
+Promise.resolve().then(() => {
+  console.log("C");
+});
+
+console.log("D");
+
+      
+
+output
+
+A
+D
+C
+B
+
+// why:
+// whenever we run program that javascsript internally works 
+// different manner like  callstack are some priorities some functio
+// when we use async function with help of asychronous callstack always run 
+// sychronous function after that asychronous like Promise and asycn and await
+// after that we can  run settimout  
+
+// this type of execution order we folloed javascript internally 
+
+              
+    </script>
+</body>
+</html>
