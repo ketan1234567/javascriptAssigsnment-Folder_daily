@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+     console.log(1);
+
+setTimeout(()=>{
+ console.log(2);
+},0);
+
+Promise.resolve()
+.then(()=>{
+ console.log(3);
+});
+
+console.log(4);
+
+// when we  execute first  run code sychronous code first 
+// console.log(1);
+// console.log(2);
+
+//step-2 we are executive second step goes callstck hight order function
+//microtask and Macrotask 
+//prioriter order is Microtask that's why executive Promise code
+
+// console.log(3);
+
+//last of execuitve setimout function because they are handling webapi broswer it comes 
+//macrotask so last executive this
+    </script>
+    
+</body>
+</html>

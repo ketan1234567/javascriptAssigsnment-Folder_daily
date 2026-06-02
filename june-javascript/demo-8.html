@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+
+    function  fetchUser(){
+        return new Promise((resolve, reject) => {
+            console.log("User_Loaded");
+          resolve({id:1,name:"Ketan_deshmukh"})
+        })
+    }
+
+   
+    function  fetchPosts(user){
+        return new Promise((resolve, reject) => {
+            console.log("Post Loaded");
+          resolve({...user,Fetc_post_name:"Ketan_deshmukh",Post_title:"Node js Developer_start"})
+        })
+    }
+    function  fetchComments(user){
+        return new Promise((resolve, reject) => {
+            console.log("Comment Loaded");
+          resolve({...user,Comment:"Thsi is very good Post"})
+        })
+    }
+
+    fetchUser().then((value)=>{
+        return fetchPosts(value)
+    }).then((value)=>{
+        return fetchComments(value)
+    }).then((value)=>{
+        console.log(value);
+        
+    }).catch((error)=>{
+        console.log(error);
+        
+    })
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        function login(user) {
+            return new Promise((resolve, reject) => {
+                if (user) {
+                    console.log("Login Success");
+                    resolve({username:user})
+                } else {
+                    reject("Username should not be Empty")
+                }
+               
+            })
+
+            
+        }
+        function getProfile(user) {
+            return new Promise((resolve, reject) => {
+                if (user.username) {
+                                     console.log("Profile Loaded");
+                    resolve({...user,Full_Name:"Ketan_Deshmukh",Address:"Sai Vihar Udgir"})
+                } else {
+                    reject("First You have to Login")
+                    
+                }
+            })
+
+            
+        }
+
+     function getSettings(user){
+        return new Promise((resolve, reject) => {
+            if (user.Full_Name) {
+                  console.log("Settings Loaded");
+                
+                resolve({...user,Setting:"Get Setting only show this data"})
+            } else {
+                reject("you have to first login data")
+                
+            }
+        })
+     }
+
+
+     async function allUserShowData() {
+        try {
+            const User= await login("ketan")
+            const Profile= await getProfile(User)
+            const Setting= await getSettings(Profile)
+            console.log(Setting);
+            
+            return Setting
+            
+        } catch (error) {
+            console.log(error);
+            
+            
+        }
+        
+     }
+     allUserShowData()
+    </script>
+    
+</body>
+</html>
