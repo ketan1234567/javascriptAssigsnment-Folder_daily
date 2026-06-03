@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+     function getProfile() {
+        return new Promise((resolve, reject) => {
+         resolve("profile_Success")
+   
+        })
+        
+     }
+          function getOrders(user) {
+        return new Promise((resolve, reject) => {
+            let req=false;
+            if (req) {
+                resolve("Order Successs")
+            } else {
+                reject("orders Failed")
+            }
+
+        })
+        
+     }
+
+               function getPayments(user) {
+        return new Promise((resolve, reject) => {
+
+            resolve("Sucessfully Payment")
+
+        })
+        
+     }
+
+     async function allshow() {
+        try {
+            const result= await Promise.allSettled([
+                getProfile(),
+                getOrders(),
+                getPayments()
+
+            ])
+            console.log(result);
+            return result
+            
+        } catch (error) {
+            console.log(error);
+            
+            
+        }
+        
+     }
+allshow()
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+const products = [
+ {name:"Laptop",price:50000},
+ {name:"Mouse",price:1000},
+ {name:"Keyboard",price:2000},
+ {name:"Monitor",price:15000}
+];
+
+const result=products.map(item=>item.name)
+
+
+const sum_of=products
+.map(item=>item.price)
+.reduce((acc,curr)=>{
+   if (curr>acc) {
+    return curr
+   }
+   return acc 
+})
+
+console.log(sum_of);
+
+
+    </script>
+    
+</body>
+</html>

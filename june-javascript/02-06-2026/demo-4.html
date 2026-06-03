@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    console.log("A");
+
+setTimeout(() => {
+  console.log("B");
+}, 0);
+
+Promise.resolve()
+.then(() => {
+  console.log("C");
+});
+
+process.nextTick(() => {
+  console.log("D");
+});
+
+console.log("E");
+
+
+//output comes ADECB
+
+//Call Stack when keey tarct of js function  execution is this work 
+// which function executed
+// what was function executed
+// what will next function executed
+
+//nextTick Queue
+// whenever we used in  node in prioritory to NextTraick function below 
+//first sychronous code first
+// second nextTrick function executed
+// thired is Microtask queue  function executed like Promise asych/await
+//Microtask Queue
+//Microtask quqe mean when we executed prioritir than Macrotask 
+
+//Callback Queue
+ //callback queue is like settimout function lasty executed
+
+//Event Loop
+// when we deal asychronous operation they have all task asychronous operation
+
+
+
+    </script>
+    
+</body>
+</html>

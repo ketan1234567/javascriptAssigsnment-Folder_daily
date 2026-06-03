@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/ketan1234567/javascriptAssigsnment-Folder_daily/issues"
   },
-  "homepage": "https://github.com/ketan1234567/javascriptAssigsnment-Folder_daily#readme"
+  "homepage": "https://github.com/ketan1234567/javascriptAssigsnment-Folder_daily#readme",
+  "dependencies": {
+    "ini": "^6.0.0"
+  }
 }
