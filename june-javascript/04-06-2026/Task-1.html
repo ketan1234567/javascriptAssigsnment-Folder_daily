@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function fetchProfile(){
+            return new Promise((resolve, reject) => {
+                resolve("Fetch_Profile")
+            })
+
+        }
+
+                function fetchPosts(){
+            return new Promise((resolve, reject) => {
+                resolve("Fetch_post")
+            })
+        }
+
+                function fetchFriends(){
+            return new Promise((resolve, reject) => {
+                let req=false
+                if (req) {
+                    resolve("fetch_friends")
+                } else {
+                    reject("invalid user id");
+                }
+            })
+
+        }
+
+        async function showAllusers() {
+            try {
+            const demo1=await Promise.allSettled([
+                fetchProfile(),
+                fetchPosts(),
+                fetchFriends()
+            ])
+            console.log(demo1);
+                   
+        
+            } catch (error) {
+                console.log(error);
+                
+            }
+            
+        }
+showAllusers()
+    </script>
+    
+</body>
+</html>

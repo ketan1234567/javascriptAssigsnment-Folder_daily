@@ -18,6 +18,9 @@
   },
   "homepage": "https://github.com/ketan1234567/javascriptAssigsnment-Folder_daily#readme",
   "dependencies": {
-    "ini": "^6.0.0"
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "ini": "^6.0.0",
+    "init": "^0.1.2"
   }
 }
