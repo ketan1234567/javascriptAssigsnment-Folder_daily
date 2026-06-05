@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+
+
+    <script>
+
+
+function loginUser(username) {
+
+    return new Promise((resolve, reject) => {
+        if (username) {
+        resolve({id:1,username:username})
+        } else {
+            reject("You have to first Login User+11111111")
+        }
+    })
+    
+}
+
+
+function fetchProfile(user){
+    return new Promise((resolve, reject) => {
+        if (user.username) {
+        resolve({...user,Addres:"sai Vihar Udgit",Phone:9970166981})
+        } else {
+            reject("You have to first Login User+2222")
+        }
+    })
+
+    
+}
+
+function fetchOrders(user)
+{
+
+        return new Promise((resolve, reject) => {
+
+        resolve({...user,Produt_id:1,Produt_name:"samsung"})
+    
+    })
+    
+}
+ function fetchNotifications(user) {
+
+            return new Promise((resolve, reject) => {
+    
+        resolve({...user,Notification:"Fetched_new_Notification"})
+   
+    })
+    
+ }
+
+async function allShow() {
+    try {
+const demo1= await loginUser("ketan")
+const demo2= await fetchProfile(demo1)
+
+const result= await Promise.all([
+     fetchOrders(demo2),
+    fetchNotifications(demo2)
+ 
+])
+
+const [orders, notifications] = result;
+
+console.log(orders);
+console.log(notifications);
+
+
+
+    } catch (error) {
+        console.log(error);
+        
+        
+    }
+    
+}
+
+allShow()
+
+    </script>
+
+</body>
+
+</html>

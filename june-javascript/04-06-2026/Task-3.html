@@ -34,17 +34,18 @@
                 const ids = [1,2,3,4];
 
                 const result= await Promise.all(
-                    ids.map(async(id)=>{
-                        return await fetchStudent(id)
-                    })
-                ).then((value)=>{
-                    console.log(value);
-                    
-                })
+                    ids.map(id=> fetchStudent(id)
+                    )
+                )
+result.flat()  // when we used flat array when we used while we have nested array 
 
-             console.log(result);
-             
-                
+
+               const response=result.flat()
+
+              const student = response.find(item => item.id === 5);
+              console.log(student);
+              
+
             } catch (error) {
                 console.log(error);
                 

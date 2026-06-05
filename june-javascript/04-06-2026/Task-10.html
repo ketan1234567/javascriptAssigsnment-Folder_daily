@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+
+
+    <script>
+
+        function fastApi() {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    let req=true
+                    if (req) {
+                        resolve("fatest_api")
+                    } else {
+                        reject("failed_api_fast")
+                        
+                    }
+                }, 1000);
+            })
+            
+        }
+
+        
+        function slowapi() {
+
+                        return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    let req=true
+                    if (req) {
+                        resolve("slow_api")
+                    } else {
+                        reject("failed_api_slow")
+                        
+                    }
+                }, 2000);
+            })
+            
+        }
+   
+   
+        async function allShow() {
+            try {
+                const result= await Promise.race([
+                    fastApi(),
+                    slowapi()
+                ])
+        
+                console.log(result);
+                
+            } catch (error) {
+                console.log(error);
+                
+                
+            }
+            
+        }
+
+        allShow()
+
+
+
+    </script>
+
+</body>
+
+</html>
