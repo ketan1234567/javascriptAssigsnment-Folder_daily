@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+function loginUser() {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve({ id: 1, username: "ketan" });
+    }, 1000);
+  });
+}
+
+function fetchOrders(userId) {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(["Laptop", "Mobile"]);
+    }, 1000);
+  });
+}
+
+async function getUserOrders() {
+  try {
+    const data= await loginUser()
+    const  demo12= await fetchOrders()
+    //  console.log(data);
+    //  console.log(demo12);
+     
+     
+    return{
+        users:data,
+        Orders:demo12
+    }
+        
+
+
+    
+    
+  } catch (error) {
+    console.log(error);
+    
+    
+  }
+}
+getUserOrders().then((value)=>{
+    console.log(value);
+    
+})
+
+        </script>
+    
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+const users = [
+  { id: 1, name: "Ketan", age: 28 },
+  { id: 2, name: "Anil", age: 22 },
+  { id: 3, name: "Vishal", age: 30 },
+  { id: 4, name: "Rahul", age: 25 }
+];
+
+
+const total_age_users=users
+.map(item=>item.age)
+.reduce((acc,curr)=>{
+    return acc+curr
+})
+
+console.log(total_age_users);
+
+const oldest_user=users.filter((item)=>{
+    if (item.age>28) {
+        console.log(item);
+        return item
+    } else {
+        
+    }
+})
+console.log(oldest_user);
+
+
+const result=users.map((item)=>{
+    console.log(item.name);
+    
+})
+
+// Create an array of users whose age is greater than 25.
+const age=users.filter((item)=>{
+    if (item.age>25) {
+    //console.log(item);
+ return item
+        
+    } else {
+        
+    }
+       
+})
+
+console.log(age);
+
+
+
+        </script>
+    
+</body>
+</html>
