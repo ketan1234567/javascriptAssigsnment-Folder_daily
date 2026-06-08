@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+function fetchUser() {
+  return Promise.resolve({
+    id: 1,
+    name: "Ketan"
+  });
+}
+
+function fetchSkills(userId) {
+  return Promise.resolve([
+    "JavaScript",
+    "Node.js",
+    "PHP"
+  ]);
+}
+
+async function getProfile() {
+ try {
+    const user= await fetchUser()
+    const  skills= await fetchSkills(1)
+    
+
+   
+        
+    
+    return{
+      users:user,
+      skill:skills
+    }
+     
+ } catch (error) {
+    console.log(error);
+    
+    
+ }
+}
+getProfile().then((value)=>{
+    console.log(value);
+    
+})
+
+
+        </script>
+    
+</body>
+</html>
