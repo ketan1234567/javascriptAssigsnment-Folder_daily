@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+
+      const orders = [
+  { id: 1, amount: 500 },
+  { id: 2, amount: 1200 },
+  { id: 3, amount: 800 },
+  { id: 4, amount: 2000 }
+];
+
+const all_order_id=orders.map(item=>item.id)
+
+const Find_orders_above=orders.filter((item)=>{
+  if (item.amount>1000) {
+    return item
+  } else {
+    
+  }
+})
+
+const Calculate_total_amount=orders
+.map(item=>item.amount)
+.reduce((acc,curr)=>{
+  return acc+curr
+})
+//console.log(Calculate_total_amount);
+
+const Find_the_largest_order=orders.reduce((largestOrder, currentOrder) => {
+   if (largestOrder>currentOrder) {
+    return largestOrder
+   } else {
+    return currentOrder
+   }
+})
+
+console.log(Find_the_largest_order);
+
+
+
+        </script>
+    
+</body>
+</html>

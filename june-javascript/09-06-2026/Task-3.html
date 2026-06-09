@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+
+     function createCart() {
+      let add=[]
+      return {
+        addItem:function additeam(item){
+          return  add.push(item)
+        },
+        getItems:function getitems(){
+  return add
+          
+        }
+      }
+      
+     }
+
+     const cart =createCart()
+
+     cart.addItem("laptop")
+     cart.addItem("Mouse")
+
+     console.log(     cart.getItems());
+     
+
+
+        </script>
+    
+</body>
+</html>

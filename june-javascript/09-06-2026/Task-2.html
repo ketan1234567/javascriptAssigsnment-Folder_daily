@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+async function fetchPosts(urls) {
+    try {
+        const promises= urls.map( async(urls)=>{
+         const response= await fetch(urls);
+
+         if (!response.ok) {
+         throw new Error("failed Ulr");
+         } 
+         return response.json()
+        })
+let successfulData=[]
+        const result= await Promise.allSettled(promises)
+        result.forEach((result,index)=>{
+         
+            if (result.status=="fulfilled") {
+       successfulData.push(result.value)
+            } else {
+                console.log(`Failed Url`,urls[index]);
+                
+                
+            }
+        })
+     const count_data=successfulData.length
+
+     
+     
+       
+
+        return {
+            total_post_count:count_data,
+            posts:successfulData
+        }
+    } catch (error) {
+        console.log(error);
+        
+        
+    }
+
+}
+
+fetchPosts(
+    
+[
+"https://jsonplaceholder.typicode.com/posts/1",
+"https://jsonplaceholder.typicode.com/posts/2",
+"https://invalid-url.com/posts"
+
+]
+
+).then((value)=>{
+    console.log(value);
+    
+})
+   
+        </script>
+    
+</body>
+</html>
