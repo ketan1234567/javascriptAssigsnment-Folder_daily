@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+function createStudentManager() {
+  let students = [];
+  let count = 0;
+
+  return {
+    addStudent(name) {
+      count++;
+      const newStudent = { id: count, name };
+      students.push(newStudent);
+      return newStudent;
+    },
+
+    getStudents() {
+      return students;
+    },
+
+    findStudent(name) {
+      return students.find(item => item.name === name) || null;
+    },
+
+    deleteStudent(name) {
+      students = students.filter(item => item.name !== name);
+      return students;
+    }
+  };
+}
+
+const student = createStudentManager();
+
+student.addStudent("Ketan");
+student.addStudent("Rahul");
+
+console.log(student.getStudents());
+
+console.log(student.findStudent("Rahul"));
+
+student.deleteStudent("Rahul");
+
+console.log(student.getStudents());
+    </script>
+
+</body>
+
+</html>

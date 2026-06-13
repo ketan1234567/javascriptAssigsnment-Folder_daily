@@ -1,0 +1,139 @@
+Task-1 Node
+
+const users = [
+  { id: 1, name: "Ketan" },
+  { id: 2, name: "Akshay" }
+];
+
+function getuser(id){
+return new Promise((resolve, reject) => {
+    const user=users.find(item=>item.id===id)
+    if (!user) {
+reject(new Error("User_id not Found"))
+        
+     }
+
+     resolve(user)
+})
+}
+
+getuser(10).then((value)=>{
+    console.log(value);
+    
+}).catch((error)=>{
+    console.log(error);
+    
+})
+
+
+Task-2 Node
+
+User: Ketan
+Posts:
+Node.js
+Express
+
+[
+  {
+    userName: "...",
+    totalPosts: ...
+  }
+]
+async function fetchUsersAndPosts(urls) {
+  const promised = urls.map(async (url) => {
+    const response = await fetch(url);
+
+    if (!response.ok) {
+      throw new Error("Failed API");
+    }
+
+    return response.json();
+  });
+
+  const result = await Promise.all(promised);
+
+  const users = result[0].map((user) => {
+    const userPosts = result[1].filter(
+      (post) => post.userId === user.id
+    );
+
+    return {
+      user: user.username,
+      totalPosts: userPosts.length
+    };
+  });
+
+  return users;
+}
+
+fetchUsersAndPosts([
+  "https://jsonplaceholder.typicode.com/users",
+  "https://jsonplaceholder.typicode.com/posts"
+])
+  .then((value) => {
+    console.log(value);
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+
+
+Task-3 Node
+
+function logger(req,res,next){
+  console.log(`${req.method} ${req.url}`);
+  next()
+}
+
+module.exports=logger
+
+
+server.js
+
+app.use(logger)
+
+task-4 node
+const loginUser=async(req,res)=>{
+    try {
+const username=req.body.username
+
+    if (username==="ketan") {
+           const token=jwt.sign(
+       {
+   username,
+   role:"admin"
+
+},
+        "mysecretkey",
+        {expiresIn:"1h"}
+    )
+
+res.status(200).json({
+    message:"token geration",
+    token
+}) 
+    }else{
+        res.status(404).json({
+            message:"User not Found"
+        })
+    }
+
+
+ 
+   } catch (error) {
+        console.log(error);
+        
+    }
+}
+
+task-5 node
+
+
+  {
+    "id": 2,
+    "name": "ketan",
+    "email": "ketan@gmail.com"
+  }
+
+D:\javascriptAssigsnment-Folder_daily\mini_task_11-06-2026\controllers\userController.js
+

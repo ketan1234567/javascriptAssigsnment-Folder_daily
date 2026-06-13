@@ -1,0 +1,3 @@
+function getEmployee(id,callback){
+  
+}

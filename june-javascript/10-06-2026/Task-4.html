@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+
+     console.log("A");
+
+setTimeout(() => {
+  console.log("B");
+}, 0);
+
+Promise.resolve().then(() => {
+  console.log("C");
+});
+
+console.log("D");
+
+// when we run above first time execute sychronous code 
+//like  console.log("A");
+
+//like  console.log("D");
+
+//then execute promise why beacuse of they are microtask function that's why its higer order function
+//  console.log("C");
+
+//after that it execute settimout function last execute because of they are  lower higer orderr
+//macrotask 
+//settimout setinterval like 
+//console.log("B");
+
+//finally output is 
+
+// A
+// D
+// C
+// B
+        </script>
+    
+</body>
+</html>

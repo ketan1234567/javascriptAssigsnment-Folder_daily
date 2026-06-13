@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        function delay(ms) {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                   resolve("Done");
+
+                }, ms);
+            })
+        }
+        delay(1000).then((value)=>{
+            console.log(value);
+            
+        }).catch((error)=>{
+            console.log(error);
+            
+        })
+
+        async function runTask() {
+            try {
+                console.log("Task Started");
+                const data = await delay(1000)
+                console.log("Task Finished");
+            } catch (error) {
+                console.log(error);
+
+            }
+
+        }
+
+        runTask()
+
+    </script>
+
+</body>
+
+</html>
