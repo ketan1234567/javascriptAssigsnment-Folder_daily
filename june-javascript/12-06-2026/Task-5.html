@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    async function fetchPostsWithUsers() {
+      try {
+        urls = [
+          "https://jsonplaceholder.typicode.com/posts/",
+          "https://jsonplaceholder.typicode.com/users/"
+
+        ]
+        const promises = urls.map((async (urls) => {
+          const response = await fetch(urls)
+          if (!response.ok) {
+            throw new Error("api failed", urls);
+            return
+          }
+
+          return response.json()
+
+
+
+
+        }))
+
+        const result = await Promise.all(
+          promises
+        )
+
+        const post = result[0]
+        const users = result[1]
+
+
+        const demo = users.map((main_user) => {
+
+          const demo2 = post.filter(Post => Post.userId == main_user.id)
+
+          return {
+            userId: demo2[0].userId,
+            UserName: main_user.username,
+            post: demo2
+
+          }
+
+
+
+
+        })
+        return demo
+
+
+      } catch (error) {
+
+
+      }
+    }
+
+    fetchPostsWithUsers().then((value) => {
+      console.log(value);
+
+    })
+
+
+
+  </script>
+
+</body>
+
+</html>

@@ -8,26 +8,16 @@
 <body>
 
     <script>
-     function createCart() {
-        let Equipment=[];
-        return{
-            addItem:function addItem(item){
-                return Equipment.push(item)
-            },
-            showItems:function showItems(){
-             console.log(Equipment);
-             
-            }
-    
-        }
-     }
+   const numbers = [1, 2, 3, 4];
 
-     const cart = createCart();
+const result = numbers.map(num => {
 
-cart.addItem("Laptop");
-cart.addItem("Mouse");
 
-cart.showItems();
+return num*2
+
+});
+
+console.log(result);
     </script>
     
 </body>

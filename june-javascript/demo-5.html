@@ -8,31 +8,38 @@
 <body>
 
     <script>
-     console.log(1);
+        async function fetchMultipleUsers(ids){
+            const promises= await ids.map(async(ids)=>{
+                const data= await fetch(ids)
 
-setTimeout(()=>{
- console.log(2);
-},0);
+                if (!data.ok) {
+                    throw new Error("failed api",ids);
+                    
+                }
 
-Promise.resolve()
-.then(()=>{
- console.log(3);
-});
+                return data.json()
 
-console.log(4);
+            })
 
-// when we  execute first  run code sychronous code first 
-// console.log(1);
-// console.log(2);
+            const result= await Promise.all(
+                promises
+            )
 
-//step-2 we are executive second step goes callstck hight order function
-//microtask and Macrotask 
-//prioriter order is Microtask that's why executive Promise code
+            result.forEach((Element)=>{
+            console.log(Element);
+            
+                //return Element
+            })
 
-// console.log(3);
+      
+            
+        }
 
-//last of execuitve setimout function because they are handling webapi broswer it comes 
-//macrotask so last executive this
+        fetchMultipleUsers(["https://jsonplaceholder.typicode.com/users/1",
+"https://jsonplaceholder.typicode.com/users/2",
+"https://jsonplaceholder.typicode.com/users/3"]
+)
+     
     </script>
     
 </body>

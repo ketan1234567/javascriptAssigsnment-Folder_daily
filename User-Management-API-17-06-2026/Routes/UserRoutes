@@ -1,0 +1,11 @@
+const express=require('express')
+const route=express.Router()
+const {showUsers,getOneUsers,Update_one,deleteUser,addusers}=require('../Controller/userController')
+const check_middle=require('../Middleware/check_login')
+route.get("/users",showUsers)
+route.get("/users/:id",getOneUsers)
+route.put("/users/:id",Update_one)
+route.delete("/users/:id",deleteUser)
+route.post("/users",addusers)
+
+module.exports=route
