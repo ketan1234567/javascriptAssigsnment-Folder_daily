@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+
+      async function showAllusers() {
+        try {
+          const users=["https://jsonplaceholder.typicode.com/users"]
+
+          const promises=users.map(async(users)=>{
+            const data = await fetch(users)
+            if (!data.ok) {
+              throw new Error("api Faield ulr");
+              
+            }
+            return  data.json()
+            
+
+          })
+
+          const result= await Promise.all(promises)
+        const main_Result=result.map((value)=>{
+          //console.log(value[0].name);
+
+          const one_object=value.find((item)=>{
+            if (item.id==3) {
+             return {
+               id:item.id,
+          name:item.name,
+           email:item.email,
+          company:item.company
+             }
+            }
+
+         
+            
+          })
+             return one_object
+          
+          // return{
+          //   id:value.id,
+          //   name:value.name,
+          //   email:value.email,
+          //   company:value.company
+          // }
+        })
+
+        return main_Result
+
+        } catch (error) {
+          console.log(error);
+          
+          
+        }
+        
+      }
+      showAllusers().then((value)=>{
+        console.log(value);
+      }).catch((error)=>{
+        console.log(error);
+        
+      })
+
+   
+    </script>
+    
+</body>
+</html>
